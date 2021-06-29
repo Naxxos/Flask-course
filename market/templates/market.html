@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Market
+{% endblock %}
+
+
+{% block content %}
+<header class="w3-container w3-theme" style="padding: 10px;">
+    <h1 class="w3-large">Market</h1>
+</header>
+
+<div class="w3-row">
+    <div class='w3-container w3-threequarter' style="padding:10px">
+        <h2>Available items</h2>
+        <p>Click to start buying</p>
+        <table class="w3-table ">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Barcode</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Options</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for item in items %}
+                {% include 'includes/items_modals.html'%}
+
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.barcode }}</td>
+                    <td>{{ item.price }}$</td>
+                    <td>
+                        <button class="w3-button w3-teal"
+                            onclick="document.getElementById('modal-MoreInfo-{{ item.id }}').style.display='block'">More
+                            infos</button>
+                        <button class="w3-button w3-indigo"
+                            onclick="document.getElementById('modal-PurchaseConfirm-{{ item.id }}').style.display='block'">Purchase</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="w3-rest w3-container">
+        <h2>Owned items</h2>
+        <p>Click on Sell item to put an item back on the market</p>
+
+        {% for item in owned_items %}
+        {% include 'includes/owned_items_modals.html'%}
+        <div class="w3-card-4 w3-section w3-theme-dark" style="width:50%">
+
+            <div class="w3-container w3-center">
+                <h3>{{ item.name }}</h3>
+                <p>{{ item.price }}$</p>
+
+                <div class="w3-section ">
+                    <button class="w3-button w3-red w3-round-large"
+                        onclick="document.getElementById('modal-SellingConfirm-{{ item.id }}').style.display='block'">Sell
+                        item</button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

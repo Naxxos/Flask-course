@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<title>Market</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    body {
+        font-family: "Roboto", sans-serif;
+        background-color: #616161;
+        color: #ffffff
+    }
+
+    .w3-bar .w3-bar-item {
+        padding: 16px;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+
+    <nav class="w3-bar w3-margin-top w3-mobile" id="myBar">
+        <a class="w3-bar-item w3-button w3-mobile" href="#">Au bon marché</a>
+        <a class="w3-bar-item w3-button w3-teal w3-mobile" href="#">Home</a>
+        <a class="w3-bar-item w3-button w3-mobile" href="/market">Market</a>
+        <a class="w3-bar-item w3-button w3-green w3-right w3-mobile" href="#">Login</a>
+        <a class="w3-bar-item w3-button w3-right w3-mobile" href="#">Register</a>
+    </nav>
+
+    <div class="w3-main" style="margin-left:0px;">
+
+        <div id="myTop" class="w3-container w3-top w3-theme w3-large">
+            <p>
+                <span id="myIntro" class="w3-hide">W3.CSS: Introduction</span>
+            </p>
+        </div>
+
+        <header class="w3-container w3-theme" style="padding:64px 32px">
+            <h1 class="w3-xxxlarge">W3.CSS</h1>
+        </header>
+
+        <div class="w3-container" style="padding:32px">
+
+            <h2>What is W3.CSS?</h2>
+
+            <p>W3.CSS is a modern CSS framework with built-in responsiveness:</p>
+
+            <ul class="w3-leftbar w3-theme-border" style="list-style:none">
+                <li>Smaller and faster than other CSS frameworks.</li>
+                <li>Easier to learn, and easier to use than other CSS frameworks.</li>
+                <li>Uses standard CSS only (No jQuery or JavaScript library).</li>
+                <li>Speeds up mobile HTML apps.</li>
+                <li>Provides CSS equality for all devices. PC, laptop, tablet, and mobile:</li>
+            </ul>
+
+
+            <footer class="w3-container w3-theme" style="padding:32px">
+                <p>Footer information goes here</p>
+            </footer>
+
+        </div>
+
+        <script>
+
+            // Change style of top container on scroll
+            window.onscroll = function () { myFunction() };
+            function myFunction() {
+                if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+                    document.getElementById("myTop").classList.add("w3-card-4", "w3-animate-opacity");
+                    document.getElementById("myIntro").classList.add("w3-show-inline-block");
+                } else {
+                    document.getElementById("myIntro").classList.remove("w3-show-inline-block");
+                    document.getElementById("myTop").classList.remove("w3-card-4", "w3-animate-opacity");
+                }
+            }
+
+        </script>
+
+</body>
+
+</html>

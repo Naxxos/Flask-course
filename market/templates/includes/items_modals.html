@@ -1,0 +1,56 @@
+<style>
+    .w3-modal-content {
+        background-color: #212121
+    }
+</style>
+
+
+
+<div id="modal-MoreInfo-{{ item.id }}" class="w3-modal">
+    <div class="w3-modal-content">
+        <header class="w3-container w3-theme">
+            <span onclick="document.getElementById('modal-MoreInfo-{{ item.id }}').style.display='none'"
+                class="w3-button w3-display-topright">&times;</span>
+            <h2>{{ item.name }}</h2>
+        </header>
+        <div class="w3-container">
+            <p>{{ item.description }}</p>
+        </div>
+        <footer class="w3-container w3-border-top w3-padding-16">
+            <button class="btn btn-secondary w3-button w3-theme" type="button"
+                onclick="document.getElementById('modal-MoreInfo-{{ item.id }}').style.display='none'">Close
+            </button>
+        </footer>
+    </div>
+</div>
+
+<div id="modal-PurchaseConfirm-{{ item.id }}" class="w3-modal">
+    <div class="w3-modal-content">
+        <header class="w3-container w3-theme">
+            <span onclick="document.getElementById('modal-PurchaseConfirm-{{ item.id }}').style.display='none'"
+                class="w3-button w3-display-topright">&times;</span>
+            <h2>Buy</h2>
+        </header>
+        <div class="w3-container w3-padding-16">
+
+            <form method="post">
+                {{ purchase_form.hidden_tag() }}
+
+                <h4 class="w3-center">
+                    Are you sure you want to buy {{ item.name }} for {{ item.price }}$ ?
+                </h4>
+                <h6 class="w3-center">
+                    By clicking purchase, you will purchase this item
+
+                </h6>
+                <input id="purchased_item" name="purchased_item" type="hidden" value="{{ item.name }}">
+                <p class="w3-center">{{ purchase_form.submit(class="btn btn-secondary w3-button w3-theme")}}</p>
+            </form>
+        </div>
+        <footer class="w3-container w3-border-top w3-padding-16">
+            <button class="btn btn-secondary w3-button w3-theme w3-right" type="button"
+                onclick="document.getElementById('modal-PurchaseConfirm-{{ item.id }}').style.display='none'">Close
+            </button>
+        </footer>
+    </div>
+</div>

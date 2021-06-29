@@ -1,0 +1,37 @@
+<style>
+    .w3-modal-content {
+        background-color: #212121
+    }
+</style>
+
+<!-- Selling confirm -->
+<div id="modal-SellingConfirm-{{ item.id }}" class="w3-modal">
+    <div class="w3-modal-content">
+        <header class="w3-container w3-theme">
+            <span onclick="document.getElementById('modal-SellingConfirm-{{ item.id }}').style.display='none'"
+                class="w3-button w3-display-topright">&times;</span>
+            <h2>Buy</h2>
+        </header>
+        <div class="w3-container w3-padding-16">
+
+            <form method="post">
+                {{ selling_form.hidden_tag() }}
+
+                <h4 class="w3-center">
+                    Are you sure you want to sell {{ item.name }} for {{ item.price }}$ ?
+                </h4>
+                <h6 class="w3-center">
+                    By clicking Sell, you will sell this item
+
+                </h6>
+                <input id="sold_item" name="sold_item" type="hidden" value="{{ item.name }}">
+                <p class="w3-center">{{ selling_form.submit(class="btn btn-secondary w3-button w3-theme")}}</p>
+            </form>
+        </div>
+        <footer class="w3-container w3-border-top w3-padding-16">
+            <button class="btn btn-secondary w3-button w3-theme w3-right" type="button"
+                onclick="document.getElementById('modal-SellingConfirm-{{ item.id }}').style.display='none'">Close
+            </button>
+        </footer>
+    </div>
+</div>
